@@ -1,0 +1,55 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+{
+	"name": ".NET",
+	"dockerComposeFile": [
+		"docker-compose.yml",
+		"../docker-compose.yml"
+	],
+	"service": "workspace",
+	"runServices": [
+		"workspace", //redundant as its declared as the 'main' service, therefore will run, but lets be explicit.
+		"db"
+	],
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"features": {
+		"ghcr.io/devcontainers/features/dotnet:1": {
+			"version": "3.1"
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/eitsupi/devcontainer-features/jq-likes:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csharp",
+				"adrianwilczynski.namespace",
+				"jesschadwick.nuget-reverse-package-search",
+				"codezombiech.gitignore",
+				"EditorConfig.EditorConfig",
+				"DavidAnson.vscode-markdownlint",
+				"deerawan.vscode-faker",
+				"tinkertrain.theme-panda",
+				"PKief.material-icon-theme",
+				"formulahendry.dotnet-test-explorer",
+				"formulahendry.code-runner",
+				"donjayamanne.githistory",
+				"eamodio.gitlens",
+				"chrmarti.regex",
+				"hbenl.vscode-test-explorer",
+				"wayou.vscode-todo-highlight",
+				"mtxr.sqltools",
+				"mtxr.sqltools-driver-pg"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				"files.defaultLanguage": "csharp"
+			}
+		}
+	}
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "docker --version",
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
